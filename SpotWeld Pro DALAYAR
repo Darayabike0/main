@@ -1,0 +1,398 @@
+{
+  "SpotWeldPro_Products": [
+    {
+      "product_id": "SWP-3001",
+      "model_name": "SpotWeld Pro 3.0",
+      "release_date": "2025-07-15",
+      "battery_type": "Li-ion 18650 / 32650",
+      "max_current_output": 120.0,
+      "welding_modes": ["Pulse", "Continuous", "SmartDetect"],
+      "safety_features": ["Overheat Protection", "Short Circuit Detection", "Auto Shutdown"],
+      "documentation_link": "https://dalayar.com/docs/spotweldpro3.0",
+      "firmware_version": "v3.1.2",
+      "status": "Active"
+    }
+  ],
+  "Inventory_Tracking": [
+    {
+      "product_id": "SWP-3001",
+      "serial_number": "SWP3-TH-000123",
+      "manufacture_date": "2025-08-10",
+      "location": "Khon Kaen Warehouse A",
+      "warranty_status": "Valid",
+      "customer_id": "CUS-4589"
+    }
+  ],
+  "Customer_Registration": [
+    {
+      "customer_id": "CUS-4589",
+      "name": "Somchai Tech",
+      "email": "somchai@techhub.co.th",
+      "product_id": "SWP-3001",
+      "serial_number": "SWP3-TH-000123",
+      "registration_date": "2025-08-15",
+      "issue_reported": ""
+    }
+  ]
+}
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เปิดตัวอย่างเป็นทางการ: DALAYAR SpotWeld Pro</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #1a237e;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        h1 {
+            font-size: 2em;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🔧 เปิดตัวอย่างเป็นทางการ: DALAYAR SpotWeld Pro</h1>
+            <p style="text-align: center; font-size: 1.2em;">เครื่องเชื่อมจุดแบตเตอรี่อัจฉริยะ เพื่อช่างมืออาชีพและผู้ใช้งาน DIY</p>
+        </header>
+
+        <section>
+            <h2>🎯 จุดเด่นของผลิตภัณฑ์</h2>
+            <ul>
+                <li>ใช้เทคโนโลยีหม้อแปลงไฟฟ้าเพื่อความเสถียรในการเชื่อม</li>
+                <li>กำลังไฟสูงสุด 5 กิโลวัตต์ รองรับงาน DIY และงานโลหะขนาดเล็ก</li>
+                <li>ปรับเวลาเชื่อมได้ตั้งแต่ <strong>0.2–1.0 วินาที</strong></li>
+                <li>รองรับการเชื่อมแถบนิกเกิลความหนา <strong>0.1–0.2 มม.</strong></li>
+                <li>เหมาะสำหรับแบตเตอรี่ลิเธียม 18650 และงานประกอบเซลล์แบบมืออาชีพ</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>⚙️ ข้อมูลทางเทคนิค</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>รายการ</th>
+                        <th>ค่า / รายละเอียด</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ยี่ห้อ</td>
+                        <td>DALAYAR</td>
+                    </tr>
+                    <tr>
+                        <td>รุ่น</td>
+                        <td>SpotWeld Pro</td>
+                    </tr>
+                    <tr>
+                        <td>แรงดันไฟฟ้าขาเข้า</td>
+                        <td>DC 12V / AC 220V</td>
+                    </tr>
+                    <tr>
+                        <td>แรงดันขาออก</td>
+                        <td>4.5V (เฉลี่ยระหว่างพัลส์)</td>
+                    </tr>
+                    <tr>
+                        <td>กระแสไฟขาออกสูงสุด</td>
+                        <td>1200A – 1900A</td>
+                    </tr>
+                    <tr>
+                        <td>จำนวนพัลส์สูงสุด</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>เวลาดาวน์โหลดพัลส์</td>
+                        <td>0–990 มิลลิวินาที</td>
+                    </tr>
+                    <tr>
+                        <td>วิธีการดำเนินการ</td>
+                        <td>Manual / Auto / Smart Pulse</td>
+                    </tr>
+                    <tr>
+                        <td>น้ำหนัก</td>
+                        <td>ประมาณ 450g</td>
+                    </tr>
+                    <tr>
+                        <td>ขนาดเครื่อง</td>
+                        <td>120mm x 80mm x 40mm</td>
+                    </tr>
+                    <tr>
+                        <td>สถานที่ผลิต</td>
+                        <td>ประกอบในประเทศไทย</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>🧪 ความสามารถในการเชื่อม</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ประเภทการเชื่อม</th>
+                        <th>วัสดุที่รองรับ</th>
+                        <th>ความหนาสูงสุด</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Spot Welding</td>
+                        <td>เหล็กชุบนิกเกิล</td>
+                        <td>≤ 0.2 มม.</td>
+                    </tr>
+                    <tr>
+                        <td>Spot Welding</td>
+                        <td>เหล็กนิกเกิลบริสุทธิ์</td>
+                        <td>≤ 0.1 มม.</td>
+                    </tr>
+                    <tr>
+                        <td>Butt Welding</td>
+                        <td>สแตนเลส</td>
+                        <td>≤ 0.6 มม.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>📦 รายการในกล่อง</h2>
+            <ul>
+                <li>เครื่อง SpotWeld Pro</li>
+                <li>สายไฟ XT60</li>
+                <li>ขั้วเชื่อมทองแดง</li>
+                <li>คู่มือการใช้งาน</li>
+                <li>QR Code สำหรับลงทะเบียนรับประกัน</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🛡️ การรับประกัน</h2>
+            <ul>
+                <li>รับประกัน 12 เดือน</li>
+                <li>ลงทะเบียนผ่าน QR Code หรือเว็บไซต์ <a href="https://dalayar.com/warranty" target="_blank">dalayar.com/warranty</a></li>
+                <li>ครอบคลุมความเสียหายจากการผลิต ไม่รวมการใช้งานผิดวิธี</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>📄 เอกสารประกอบ</h2>
+            <ul>
+                <li><a href="https://dalayar.com/docs/spotweld-manual" target="_blank">คู่มือการใช้งาน SpotWeld Pro</a></li>
+                <li><a href="https://dalayar.com/docs/safety" target="_blank">นโยบายความปลอดภัย</a></li>
+                <li><a href="https://dalayar.com/docs/spec-sheet" target="_blank">แผ่นข้อมูลสเปค</a></li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>🔗 เปรียบเทียบกับรุ่นทั่วไปในตลาด</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>รุ่นทั่วไป (Lc003-)</th>
+                        <th>DALAYAR SpotWeld Pro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>กำลังไฟสูงสุด 1900A</td>
+                        <td>กำลังไฟสูงสุด 1200–1900A</td>
+                    </tr>
+                    <tr>
+                        <td>เวลาดาวน์โหลด 0–990ms</td>
+                        <td>ปรับพัลส์ 0.2–1.0 วินาที</td>
+                    </tr>
+                    <tr>
+                        <td>ไม่มีระบบ Smart Pulse</td>
+                        <td>มีโหมด Manual / Auto / Smart Pulse</td>
+                    </tr>
+                    <tr>
+                        <td>ไม่มีระบบลงทะเบียน</td>
+                        <td>มี QR + CRM + การรับประกัน</td>
+                    </tr>
+                    <tr>
+                        <td>สถานที่ผลิตไม่ระบุ</td>
+                        <td>ประกอบในประเทศไทย</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <footer class="footer">
+            <p>©️ DALAYAR Bicycle Lifestyle Company Limited</p>
+            <p><em>Empowering battery assembly with precision and trust.</em></p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
+
+import json
+import csv
+
+# โหลด JSON
+with open('spotweldpro_data.json', 'r', encoding='utf-8') as f:
+    data = json.load(f)
+
+# Export ตาราง Products
+with open('SpotWeldPro_Products.csv', 'w', newline='', encoding='utf-8') as f:
+    writer = csv.DictWriter(f, fieldnames=data['SpotWeldPro_Products'][0].keys())
+    writer.writeheader()
+    writer.writerows(data['SpotWeldPro_Products'])
+
+# Export ตาราง Inventory
+with open('Inventory_Tracking.csv', 'w', newline='', encoding='utf-8') as f:
+    writer = csv.DictWriter(f, fieldnames=data['Inventory_Tracking'][0].keys())
+    writer.writeheader()
+    writer.writerows(data['Inventory_Tracking'])
+
+# Export ตาราง Customer
+with open('Customer_Registration.csv', 'w', newline='', encoding='utf-8') as f:
+    writer = csv.DictWriter(f, fieldnames=data['Customer_Registration'][0].keys())
+    writer.writeheader()
+    writer.writerows(data['Customer_Registration'])
+import csv
+import json
+
+def csv_to_json(filename):
+    with open(filename, 'r', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        return list(reader)
+
+data = {
+    "SpotWeldPro_Products": csv_to_json('SpotWeldPro_Products.csv'),
+    "Inventory_Tracking": csv_to_json('Inventory_Tracking.csv'),
+    "Customer_Registration": csv_to_json('Customer_Registration.csv')
+}
+
+with open('spotweldpro_data_imported.json', 'w', encoding='utf-8') as f:
+    json.dump(data, f, indent=2, ensure_ascii=False)
+
+
+# SpotWeld Pro 3.0 คู่มือผู้ใช้งาน
+
+**รุ่น:** SWP-3001  
+**แบตเตอรี่ที่รองรับ:** Li-ion 18650 / 32650  
+**โหมดการเชื่อม:** Pulse, Continuous, SmartDetect  
+**กระแสสูงสุด:** 120A  
+**ฟีเจอร์ความปลอดภัย:**  
+- Overheat Protection  
+- Short Circuit Detection  
+- Auto Shutdown  
+
+## 🔧 การติดตั้ง
+1. เชื่อมต่อแบตเตอรี่ตามคู่มือ
+2. ตรวจสอบสถานะ LED ก่อนใช้งาน
+3. เลือกโหมดการเชื่อมที่เหมาะสม
+
+## 📦 การรับประกัน
+กรุณาลงทะเบียนสินค้าที่ [dalayar.com/register](https://dalayar.com/register) พร้อมหมายเลขเครื่อง
+
+## 📥 ดาวน์โหลดเอกสารเพิ่มเติม
+- [คู่มือ PDF](https://dalayar.com/docs/spotweldpro3.0)
+- [Firmware ล่าสุด](https://dalayar.com/firmware/swp3.1.2)
+
+dalayar_spotweldpro/
+│
+├── app.py                  # ไฟล์หลักของ Flask
+├── templates/              # HTML templates
+│   └── product.html
+├── static/                 # CSS, JS, รูปภาพ
+├── data/
+│   └── spotweldpro_data.json
+├── utils/
+│   └── csv_converter.py    # ฟังก์ชันแปลง CSV ↔ JSON
+└── README.md
+
+from flask import Flask, render_template, request, jsonify
+import json
+
+app = Flask(__name__)
+
+# โหลดข้อมูลสินค้า
+def load_products():
+    with open('data/spotweldpro_data.json', 'r', encoding='utf-8') as f:
+        return json.load(f)['SpotWeldPro_Products']
+
+@app.route('/')
+def home():
+    products = load_products()
+    return render_template('product.html', products=products)
+
+@app.route('/api/products', methods=['GET'])
+def api_products():
+    return jsonify(load_products())
+
+@app.route('/register', methods=['POST'])
+def register_product():
+    data = request.json
+    # บันทึกข้อมูลลง JSON หรือ CSV
+    return jsonify({"status": "success", "message": "ลงทะเบียนเรียบร้อย"})
+import markdown
+
+@app.route('/docs/<doc_name>')
+def show_doc(doc_name):
+    with open(f'docs/{doc_name}.md', 'r', encoding='utf-8') as f:
+        content = f.read()
+    html = markdown.markdown(content)
+    return render_template('doc.html', content=html)
