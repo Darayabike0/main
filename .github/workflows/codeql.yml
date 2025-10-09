@@ -1,62 +1,11 @@
-# DALAYAR Secure Workflow — CodeQL Analysis
-# สร้างระบบที่ตรวจสอบได้ โปร่งใส และพร้อมขยาย เพื่อสะท้อนความไว้วางใจในทุกบรรทัดของโค้ด
+# ผู้ดูแลโฟลเดอร์ frontend
+/frontend/ @yaradin @dalayar-dev-team
 
-name: "DALAYAR CodeQL Secure Build"
+# ผู้ดูแลโฟลเดอร์ backend
+/backend/ @dalayar-backend
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  schedule:
-    - cron: '30 21 * * 6' # วิเคราะห์ความปลอดภัยทุกสัปดาห์อย่างสม่ำเสมอ
+# ผู้ดูแล workflow และ security
+/.github/workflows/ @yaradin @dalayar-secure
 
-jobs:
-  analyze:
-    name: Analyze (${{ matrix.language }})
-    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
-    permissions:
-      security-events: write
-      packages: read
-      actions: read
-      contents: read
-
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - language: javascript-typescript
-            build-mode: autobuild
-          - language: python
-            build-mode: autobuild
-
-    steps:
-    - name: 📦 Checkout DALAYAR Repository
-      uses: actions/checkout@v4
-
-    # หากต้องการ setup runtime เพิ่มเติม ให้ระบุอย่างชัดเจนเพื่อความโปร่งใส
-    # - name: Setup Node.js
-    #   uses: actions/setup-node@v4
-    #   with:
-    #     node-version: '18'
-
-    - name: 🔍 Initialize CodeQL Scanner
-      uses: github/codeql-action/init@v3
-      with:
-        languages: ${{ matrix.language }}
-        build-mode: ${{ matrix.build-mode }}
-        queries: +security-extended,security-and-quality
-
-    - name: ⚠️ Manual Build Required
-      if: matrix.build-mode == 'manual'
-      shell: bash
-      run: |
-        echo '🔧 ระบบไม่สามารถ build โดยอัตโนมัติ กรุณาระบุขั้นตอนการ build ที่ชัดเจน เช่น:'
-        echo '  make bootstrap'
-        echo '  make release'
-        exit 1
-
-    - name: ✅ Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3
-      with:
-        category: "/language:${{ matrix.language }}"
+# ผู้ดูแลเอกสาร
+/docs/ @dalayar-docs
