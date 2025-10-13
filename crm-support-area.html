@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>พื้นที่สนับสนุน CRM | DALAYAR</title>
+  <style>
+    body { font-family: 'Sarabun', Arial, sans-serif; background: #f7f8fa; margin: 0; padding: 0; }
+    .container { max-width: 840px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 16px #0001; padding: 32px 24px; }
+    h1 { text-align: center; font-weight: 700; margin-bottom: 24px; }
+    .search-bar { margin-bottom: 20px; display: flex; gap: 12px; }
+    .search-bar input, .search-bar select {
+      padding: 8px; border-radius: 6px; border: 1px solid #ddd; font-size: 1rem;
+    }
+    .module-list { display: flex; flex-direction: column; gap: 24px; }
+    .module { background: #f5faff; border-radius: 8px; padding: 20px; border-left: 6px solid #b3e5fc; }
+    .module .icon { font-size: 2.2em; margin-right: 12px; vertical-align: middle; }
+    .module-title { font-size: 1.2em; font-weight: 600; margin-bottom: 6px; display: flex; align-items: center; }
+    .module-desc { color: #555; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧭 พื้นที่สนับสนุน CRM</h1>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="ค้นหาด้วยชื่อหรือคำอธิบาย..." oninput="filterModules()">
+      <select id="filterSelect" onchange="filterModules()">
+        <option value="">แสดงทั้งหมด</option>
+        <option value="ระบบการออกแบบส่วนหน้า">UI/UX Design</option>
+        <option value="ศูนย์กลางเอกสาร API">API Docs</option>
+        <option value="คลังข้อมูลแบตเตอรี่">Battery DB</option>
+        <option value="ระบบแจ้งเตือนอัตโนมัติ">Notification</option>
+        <option value="แดชบอร์ดการรับประกัน">Warranty Dashboard</option>
+        <option value="ศูนย์ความปลอดภัยและการเปิดเผย">Security Center</option>
+        <option value="ระบบลงทะเบียนผลิตภัณฑ์">Product Registration</option>
+      </select>
+    </div>
+    <div class="module-list" id="moduleList">
+      <!-- Modules will be injected here -->
+    </div>
+  </div>
+
+  <script>
+    const modules = [
+      {
+        name: "ระบบการออกแบบส่วนหน้า", icon: "🎨",
+        desc: "พื้นที่สำหรับจัดการ UI/UX ของผลิตภัณฑ์ DALAYAR โดยเน้นความชัดเจน ความไว้วางใจ และความสอดคล้องกับแบรนด์"
+      },
+      {
+        name: "ศูนย์กลางเอกสาร API", icon: "📚",
+        desc: "แหล่งรวมเอกสารเชิงเทคนิคสำหรับนักพัฒนาและทีมเทคนิค เพื่อการเชื่อมต่อระบบภายนอกอย่างปลอดภัยและมีประสิทธิภาพ"
+      },
+      {
+        name: "คลังข้อมูลแบตเตอรี่", icon: "🔋",
+        desc: "ฐานข้อมูลแบตเตอรี่ทั้งหมดที่ใช้ในผลิตภัณฑ์ DALAYAR พร้อมรายละเอียดทางเทคนิค การรับประกัน และการลงทะเบียนผ่าน QR"
+      },
+      {
+        name: "ระบบแจ้งเตือนอัตโนมัติ", icon: "🔔",
+        desc: "พื้นที่สำหรับตั้งค่าและจัดการการแจ้งเตือนผ่าน LINE OA, CRM และอีเมล เพื่อให้ลูกค้าได้รับข้อมูลสำคัญตรงเวลา"
+      },
+      {
+        name: "แดชบอร์ดการรับประกัน", icon: "🛡️",
+        desc: "หน้ารวมสถานะการรับประกันของผลิตภัณฑ์ทั้งหมด พร้อมระบบลงทะเบียนผ่าน QR และการแจ้งเตือนหมดอายุ"
+      },
+      {
+        name: "ศูนย์ความปลอดภัยและการเปิดเผย", icon: "🔐",
+        desc: "พื้นที่สำหรับจัดการการแจ้งเตือนด้านความปลอดภัย การเปิดเผยช่องโหว่ และการติดตามการแก้ไขตามมาตรฐาน DALAYAR"
+      },
+      {
+        name: "ระบบลงทะเบียนผลิตภัณฑ์", icon: "📝",
+        desc: "หน้าสำหรับลูกค้าลงทะเบียนผลิตภัณฑ์ผ่าน QR Code เพื่อเปิดใช้งานการรับประกันและระบบแจ้งเตือน"
+      },
+    ];
+
+    function filterModules() {
+      const search = document.getElementById('searchInput').value.trim().toLowerCase();
+      const filter = document.getElementById('filterSelect').value;
+      const list = document.getElementById('moduleList');
+      list.innerHTML = '';
+      modules.filter(m => {
+        const matchesSearch = m.name.toLowerCase().includes(search) || m.desc.toLowerCase().includes(search);
+        const matchesFilter = !filter || m.name === filter;
+        return matchesSearch && matchesFilter;
+      }).forEach(m => {
+        list.innerHTML += `
+          <div class="module">
+            <div class="module-title"><span class="icon">${m.icon}</span>${m.name}</div>
+            <div class="module-desc">${m.desc}</div>
+          </div>
+        `;
+      });
+      if(list.innerHTML === '') {
+        list.innerHTML = '<div style="padding:32px;text-align:center;color:#bbb;">ไม่พบข้อมูลที่ต้องการ</div>';
+      }
+    }
+
+    // Initial render
+    filterModules();
+  </script>
+</body>
+</html>
