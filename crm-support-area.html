@@ -92,7 +92,30 @@
         list.innerHTML = '<div style="padding:32px;text-align:center;color:#bbb;">ไม่พบข้อมูลที่ต้องการ</div>';
       }
     }
+<div style="font-family: 'Segoe UI', sans-serif; max-width: 600px; margin: auto; padding: 24px; border: 1px solid #ccc; border-radius: 8px;">
+  <h2 style="color: #1a1a1a;">ยืนยันการลงทะเบียนรับประกันสินค้า <span style="color: #0078D4;">SpotWeld Pro</span></h2>
+  <p>ขอบคุณที่เลือกใช้ผลิตภัณฑ์จาก <strong>DALAYAR</strong> — เครื่องมือที่ออกแบบมาเพื่อความปลอดภัย ความแม่นยำ และความไว้วางใจในทุกการเชื่อมต่อ</p>
 
+  <p>เพื่อรับสิทธิ์การรับประกันสินค้าอย่างเต็มรูปแบบ พร้อมบริการแจ้งเตือนและสนับสนุนจากทีม DALAYAR กรุณากรอกข้อมูลด้านล่าง:</p>
+
+  <form action="https://your-crm-form-endpoint.com/register" method="POST">
+    <label for="name">ชื่อ-นามสกุล:</label><br>
+    <input type="text" id="name" name="name" required style="width: 100%; padding: 8px;"><br><br>
+
+    <label for="email">อีเมล:</label><br>
+    <input type="email" id="email" name="email" required style="width: 100%; padding: 8px;"><br><br>
+
+    <label for="phone">เบอร์โทรศัพท์:</label><br>
+    <input type="tel" id="phone" name="phone" required style="width: 100%; padding: 8px;"><br><br>
+
+    <label for="serial">หมายเลขผลิตภัณฑ์ (Serial No.):</label><br>
+    <input type="text" id="serial" name="serial" required style="width: 100%; padding: 8px;"><br><br>
+
+    <button type="submit" style="background-color: #0078D4; color: white; padding: 10px 20px; border: none; border-radius: 4px;">ยืนยันการลงทะเบียน</button>
+  </form>
+
+  <p style="margin-top: 20px; font-size: 0.9em; color: #555;">ข้อมูลของคุณจะถูกเก็บรักษาอย่างปลอดภัย และใช้เพื่อการรับประกันและบริการหลังการขายเท่านั้น</p>
+</div>
     // Initial render
     filterModules();
   </script>
