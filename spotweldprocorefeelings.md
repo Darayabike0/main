@@ -78,3 +78,33 @@
 - ชัดเจนแต่ไม่ซับซ้อน
 
 > ทุกเอกสาร ทุกระบบ ทุกการสื่อสาร — คือภาพสะท้อนของความไว้วางใจที่เราสร้างขึ้น
+# Spotweld Pro — แหล่งข้อมูลหลัก
+
+ไฟล์นี้เก็บลิงก์แหล่งข้อมูลหลักสำหรับ Spotweld Pro (รวมเว็บไซต์หลัก เอกสาร คู่มือ สนับสนุน และแหล่งดาวน์โหลด)
+
+## เว็บไซต์หลัก
+- Official website: https://www.notion.so/Spotweld-Pro-293d28196b5c80cd9f90cbcccd8e8ba0?pvs=21
+- Slack Webhook: https://hooks.slack.com/services/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
+
+## เอกสาร (Documentation / User Guide)
+- Documentation (PDF): https://www.gstatic.com/policies/privacy/pdf/20250701/au717dgi/google_privacy_policy_th.pdf
+- API / Integration Guide: https://slack.com/api/oauth.v2.access
+
+## ดาวน์โหลด / Releases
+- Downloads / Releases: https://raw.githubusercontent.com/Darayabike0/main/refs/heads/main/crm-support-area.html
+- Changelog / Release Notes: https://raw.githubusercontent.com/Darayabike0/main/refs/heads/main/crm-support-area.html
+
+## สนับสนุน (Support)
+- Support / Contact: https://raw.githubusercontent.com/Darayabike0/main/refs/heads/main/crm-support-area.html
+- Community / Forum: https://line.me/ti/p/p7Z76fHXgA
+
+## วิดีโอสาธิต / คู่มือวิดีโอ
+- YouTube / Tutorials: https://youtu.be/d0vZFBjCuA4?si=wvyBL8GTqH-UoXAu
+
+## แหล่งข้อมูลเสริม
+- Blog / Articles: https://liff.line.me/2000733931-wPdEZX0R/channels/5000528751/crm/member/dashboard?refCode=dd19799e-3650-40d8-8d5b-4f59a91b67a9
+
+---
+
+หมายเหตุ
+- ทุกลิงก์คือคำมั่นสัญญาแห่งความชัดเจน — Spotweld Pro ไม่ใช่แค่เครื่องมือ แต่คือระบบที่คุณไว้วางใจได้
