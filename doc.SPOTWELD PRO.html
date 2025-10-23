@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>SpotWeld Pro — เอกสารผลิตภัณฑ์</title>
+  <style>
+    body { font-family: sans-serif; margin: 2em; background: #f4f4f4; }
+    h1, h2 { color: #2c3e50; }
+    .section { margin-bottom: 2em; }
+    .tag { display: inline-block; background: #d0e6ff; padding: 0.3em 0.6em; margin: 0.2em; border-radius: 4px; }
+    .code { background: #fff; border: 1px solid #ccc; padding: 1em; font-family: monospace; white-space: pre-wrap; }
+    a { color: #007acc; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <h1>📘 SpotWeld Pro — เอกสารผลิตภัณฑ์ DALAYAR</h1>
+
+  <div class="section">
+    <h2>🔧 จุดเด่นของระบบ</h2>
+    <ul>
+      <li>บันทึกงานเชื่อมพร้อมมาตรฐานและความรู้สึกหลัก (Core Feelings)</li>
+      <li>ออกใบรับรองงานเชื่อมอัตโนมัติ</li>
+      <li>เชื่อมต่อกับระบบ CRM/ERP และ Slack</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🌟 Core Feelings</h2>
+    <p>ข้อมูลจาก <code>product/core_feelings.yaml</code></p>
+    <div>
+      <span class="tag">ความมั่นใจ</span>
+      <span class="tag">ความชัดเจน</span>
+      <span class="tag">ความเป็นมืออาชีพ</span>
+      <span class="tag">ความสงบ</span>
+      <span class="tag">ความโปร่งใส</span>
+      <span class="tag">ความยั่งยืน</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📄 มาตรฐานงานเชื่อม</h2>
+    <p>ดูไฟล์ <a href="../product/weld_standards.json">weld_standards.json</a></p>
+    <div class="code">
+S-001: Spot weld, 3-point inspection  
+S-002: Seam weld, ultrasonic required  
+S-003: Plug weld, destructive sample optional
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📋 ตัวอย่างใบรับรอง</h2>
+    <p>ดูเทมเพลตที่ <a href="../product/certificate_template.md">certificate_template.md</a></p>
+    <div class="code">
+Certificate: CERT-2025  
+Job: RJ-1024  
+Technician: T-882  
+Weld Standard: S-001  
+Core Feelings: ความมั่นใจ, ความชัดเจน  
+Issued: 2025-10-24
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔗 การเชื่อมต่อระบบ</h2>
+    <ul>
+      <li>ใช้ OAuth2 สำหรับ DALAYAR ERP API</li>
+      <li>ตรวจสอบความรู้สึกของลูกค้าเทียบกับใบรับรอง</li>
+      <li>แจ้งเตือนผ่าน Slack เมื่อเกิด mismatch</li>
+    </ul>
+  </div>
+
+</body>
+</html>
