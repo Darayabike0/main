@@ -396,3 +396,38 @@ def show_doc(doc_name):
         content = f.read()
     html = markdown.markdown(content)
     return render_template('doc.html', content=html)
+
+# 🔌 DALAYAR UI/UX Module API
+
+> API สำหรับเชื่อมต่อโมดูลการออกแบบส่วนหน้า (UI/UX) กับระบบ CRM และแบ็กเอนด์ของ DALAYAR โดยเน้นความชัดเจน ความไว้วางใจ และความสอดคล้องกับแบรนด์
+
+---
+
+## 📥 POST /api/crm/modules
+
+### 📌 คำอธิบาย
+สร้างหรืออัปเดตโมดูล UI/UX ในระบบ CRM
+
+### 🔐 Authentication
+ใช้ Bearer Token ใน Header
+
+### 🧾 Request Body
+```json
+{
+  "module": "uiux_design",
+  "brand": "DALAYAR",
+  "theme": {
+    "primaryColor": "#E5B100",
+    "fontFamily": "Prompt"
+  },
+  "layout": {
+    "header": true,
+    "sidebar": true
+  }
+}
+POST /webhook/notify
+{
+  "event": "module_updated",
+  "module_id": "mod001",
+  "timestamp": "2025-10-13T14:05:00Z"
+}
