@@ -1,34 +1,117 @@
-[
-  {
-    "display_name": "เจ้าเป่า MiniVolt 074",
-    "description": "แบตเตอรี่ลิเธียม 7.4V 2000mAh สำหรับอุปกรณ์พกพา เช่น ไฟจักรยาน, GPS, เครื่องมือเบา",
-    "use_case": "ไฟจักรยาน, อุปกรณ์เสริม",
-    "voltage": "7.4V",
-    "capacity_mAh": 2000,
-    "cell_type": "Li-ion"
+{
+  "info": {
+    "_postman_id": "dryshop4-spotweld-github",
+    "name": "DRYShop4 - SpotWeld Pro (GitHub API)",
+    "description": "เรียกดูไฟล์ JSON, โค้ด, และข้อมูลโปรเจกต์ Spot Welder จาก GitHub repo: Darayabike0/1-api-spotweld-pro\n\n**Repository**: https://github.com/Darayabike0/1-api-spotweld-pro",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
-  {
-    "display_name": "เจ้าเป่า TrailCore 148",
-    "description": "แบตเตอรี่ลิเธียม 14.8V 2000mAh สำหรับจักรยานไฟฟ้ารุ่นเบา หรือเครื่องมือช่างขนาดกลาง",
-    "use_case": "จักรยานไฟฟ้าขนาดเล็ก, เครื่องมือไฟฟ้า",
-    "voltage": "14.8V",
-    "capacity_mAh": 2000,
-    "cell_type": "Li-ion"
+  "item": [
+    {
+      "name": "1. ดึงข้อมูล Repository (Overview)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/vnd.github.v3+json"
+          }
+        ],
+        "url": {
+          "raw": "https://api.github.com/repos/Darayabike0/1-api-spotweld-pro",
+          "protocol": "https",
+          "host": ["api", "github", "com"],
+          "path": ["repos", "Darayabike0", "1-api-spotweld-pro"]
+        },
+        "description": "ดูข้อมูล repo: ชื่อ, ดาว, ฟอร์ค, ล่าสุดอัปเดต"
+      }
+    },
+    {
+      "name": "2. ดึงไฟล์ JSON ทั้งหมดในโฟลเดอร์ Json/",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/vnd.github.v3+json"
+          }
+        ],
+        "url": {
+          "raw": "https://api.github.com/repos/Darayabike0/1-api-spotweld-pro/contents/Json",
+          "protocol": "https",
+          "host": ["api", "github", "com"],
+          "path": ["repos", "Darayabike0", "1-api-spotweld-pro", "contents", "Json"]
+        },
+        "description": "รายnไฟล์ทั้งหมดในโฟลเดอร์ Json"
+      }
+    },
+    {
+      "name": "3. ดึงไฟล์ JSON ตัวอย่าง (เช่น config.json)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/vnd.github.v3+json"
+          }
+        ],
+        "url": {
+          "raw": "https://api.github.com/repos/Darayabike0/1-api-spotweld-pro/contents/Json/config.json",
+          "protocol": "https",
+          "host": ["api", "github", "com"],
+          "path": ["repos", "Darayabike0", "1-api-spotweld-pro", "contents", "Json", "config.json"]
+        },
+        "description": "ดึงไฟล์ JSON ตัวอย่าง (เปลี่ยนชื่อไฟล์ตามจริง)"
+      }
+    },
+    {
+      "name": "4. ดึง Raw JSON (สำหรับใช้ในแอป)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://raw.githubusercontent.com/Darayabike0/1-api-spotweld-pro/main/Json/config.json",
+          "protocol": "https",
+          "host": ["raw",
+ "githubusercontent", "com"],
+          "path": ["Darayabike0", "1-api-spotweld-pro", "main", "Json", "config.json"]
+        },
+        "description": "ดึง JSON ดิบ (ไม่ต้อง decode base64) – ใช้ในแอปได้เลย"
+      }
+    },
+    {
+      "name": "5. ดึง README.md ของโปรเจกต์",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/vnd.github.v3+json"
+          }
+        ],
+        "url": {
+          "raw": "https://api.github.com/repos/Darayabike0/1-api-spotweld-pro/readme",
+          "protocol": "https",
+          "host": ["api", "github", "com"],
+          "path": ["repos", "Darayabike0", "1-api-spotweld-pro", "readme"]
+        }
+      }
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{GITHUB_TOKEN}}",
+        "type": "string"
+      }
+    ]
   },
-  {
-    "display_name": "เจ้าเป่า EnduroCell 222",
-    "description": "แบตเตอรี่ลิเธียม 22.2V 2000mAh สำหรับงานต่อเนื่อง เช่น มอเตอร์จักรยาน, หุ่นยนต์, เครื่องมือหนัก",
-    "use_case": "มอเตอร์จักรยาน, หุ่นยนต์, เครื่องมือช่าง",
-    "voltage": "22.2V",
-    "capacity_mAh": 2000,
-    "cell_type": "Li-ion"
-  },
-  {
-    "display_name": "เจ้าเป่า VoltKing 360",
-    "description": "แบตเตอรี่ลิเธียมฟอสเฟต 36V 2000mAh สำหรับจักรยานไฟฟ้ารุ่นใหญ่ที่ต้องการพลังสูงและความปลอดภัย",
-    "use_case": "จักรยานไฟฟ้ารุ่นกลางถึงใหญ่, สกู๊ตเตอร์ไฟฟ้า",
-    "voltage": "36V",
-    "capacity_mAh": 2000,
-    "cell_type": "LiFePO4"
-  }
-]
+  "variable": [
+    {
+      "key": "GITHUB_TOKEN",
+      "value": "your_personal_access_token_here",
+      "description": "GitHub PAT (เพิ่ม rate limit จาก 60 → 5000 req/hr)"
+    }
+  ]
+}
