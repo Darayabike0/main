@@ -1,0 +1,42 @@
+# ไฟล์ build และ firmware
+/build/
+*.hex
+*.bin
+*.elf
+
+# ไฟล์ชั่วคราวจากการพัฒนา
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Node.js / TypeScript (ถ้ามี)
+node_modules/
+dist/
+.env
+.env.local
+
+# Markdown preview cache
+*.md.cache
+
+# คู่มือ HTML ที่ generate อัตโนมัติ
+docs/html/
+docs/manual-export/
+
+# ไฟล์จาก Notion Export
+notion_export/
+*.zip
+
+# Mock data ที่ไม่ต้องติดตาม
+mock-data/*.json
+resources/tmp/
+
+# GitHub Pages output
+public/
+gh-pages/
+
+# IDE / Editor config
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db
