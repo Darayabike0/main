@@ -1,0 +1,48 @@
+`http
+GET /api/v1/coa/:lot_id
+`
+  "lots": [
+    {
+      "lot_id": "LOT-20251024-02",
+      "product_model": "Plack-2S1P-2000mAh",
+      "voltage": "7.4V",
+      "capacity": "2000mAh"
+    },
+    {
+      "lot_id": "LOT-20251024-03",
+      "product_model": "Plack-3S1P-2000mAh",
+      "voltage": "11.1V",
+      "capacity": "2000mAh"
+    },
+    {
+      "lot_id": "LOT-20251024-04",
+      "product_model": "Plack-4S1P-2000mAh",
+      "voltage": "14.8V",
+      "capacity": "2000mAh"
+    },
+    {
+      "lot_id": "LOT-20251024-05",
+      "product_model": "Plack-5S1P-2000mAh",
+      "voltage": "18.5V",
+      "capacity": "2000mAh"
+    },
+    {
+      "lot_id": "LOT-20251024-06",
+      "product_model": "Plack-6S1P-2000mAh",
+      "voltage": "22.2V",
+      "capacity": "2000mAh"
+    },
+    {
+      "lot_id": "LOT-20251024-07",
+      "product_model": "Plack-7S1P-2000mAh",
+      "voltage": "25.9V",
+      "capacity": "2000mAh"
+    },
+    {
+      "lot_id": "LOT-20251024-010",
+      "product_model": "Plack-10S1P-2000mAh",
+      "voltage": "37.0V",
+      "capacity": "2000mAh"
+    }
+  ]
+}
