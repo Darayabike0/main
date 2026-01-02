@@ -1,0 +1,201 @@
+ตัวอย่าง Webhook สำหรับเชื่อมต่อ DALAYAR CRM/ERP กับ @DRYShop4
+DALAYAR รองรับ Webhook (Event-Driven) เพื่อส่งข้อมูลอัตโนมัติเมื่อเกิดเหตุการณ์ เช่น อัปเดตสต็อก, เปลี่ยนสถานะออเดอร์, ลูกค้าใหม่, คะแนนสะสมเปลี่ยนแปลง ฯลฯ
+@DRYShop4
+ สามารถ รับ Webhook นี้ได้ผ่าน Endpoint ปลายทาง (Webhook URL) ที่ตั้งค่าไว้1. ขั้นตอนการตั้งค่า Webhook ใน DALAYARเข้า DALAYAR Admin Panel → ตั้งค่า → Webhooks
+คลิก เพิ่ม Webhook
+กรอกข้อมูล:ชื่อ: DRYShop4 Sync
+URL ปลายทาง: https://api.dryshop4.com/webhook/dalayar
+เลือก Events (เลือกตามต้องการ):order.status_updated
+inventory.stock_updated
+customer.created
+customer.points_updated
+
+เปิดใช้งาน
+
+คลิก บันทึก → DALAYAR จะส่ง Test Ping ไปยัง URL
+
+2. โครงสร้าง Payload (ตัวอย่าง JSON จาก DALAYAR)Event: order.status_updatedjson
+
+{
+  "event": "order.status_updated",
+  "timestamp": "2025-04-05T10:30:45+07:00",
+  "data": {
+    "order_id": "ORD-001",
+    "old_status": "pending",
+    "new_status": "shipped",
+    "tracking_number": "TH123456789",
+    "shipping_provider": "Kerry",
+    "updated_at": "2025-04-05T10:30:40+07:00"
+  },
+  "signature": "sha256=abc123xyz..." 
+}
+
+Event: inventory.stock_updatedjson
+
+{
+  "event": "inventory.stock_updated",
+  "timestamp": "2025-04-05T10:25:12+07:00",
+  "data": {
+    "sku": "SKU001",
+    "warehouse": "WH-BKK",
+    "old_stock": 50,
+    "new_stock": 48,
+    "updated_at": "2025-04-05T10:25:10+07:00"
+  }
+}
+
+3. ตัวอย่างโค้ดรับ Webhook ใน @DRYShop4
+Node.js (Express)javascript
+
+const express = require('express');
+const crypto = require('crypto');
+const app = express();
+
+app.use(express.json());
+
+// ตั้งค่า Secret Key (ได้จาก DALAYAR ตอนสร้าง Webhook)
+const WEBHOOK_SECRET = 'your_dalayar_webhook_secret';
+
+// ตรวจสอบ Signature (เพื่อความปลอดภัย)
+function verifySignature(body, signature) {
+    const hmac = crypto.createHmac('sha256', WEBHOOK_SECRET);
+    const digest = 'sha256=' + hmac.update(JSON.stringify(body)).digest('hex');
+    return crypto.timingSafeEqual(Buffer.from(digest), Buffer.from(signature));
+}
+
+app.post('/webhook/dalayar', (req, res) => {
+    const signature = req.headers['x-dalayar-signature'];
+    const rawBody = req.body;
+
+    // ตรวจสอบ Signature
+    if (!signature || !verifySignature(rawBody, signature)) {
+        return res.status(401).send('Invalid signature');
+    }
+
+    const event = rawBody.event;
+    const data = rawBody.data;
+
+    console.log(`Received Webhook: ${event}`, data);
+
+    // จัดการตาม Event
+    switch (event) {
+        case 'order.status_updated':
+            handleOrderStatusUpdate(data);
+            break;
+        case 'inventory.stock_updated':
+            handleStockUpdate(data);
+            break;
+        case 'customer.created':
+            handleNewCustomer(data);
+            break;
+        case 'customer.points_updated':
+            handlePointsUpdate(data);
+            break;
+        default:
+            console.log('Unhandled event:', event);
+    }
+
+    res.status(200).send('OK');
+});
+
+// ฟังก์ชันจัดการ
+function handleOrderStatusUpdate(data) {
+    // อัปเดตสถานะใน @DRYShop4
+    console.log(`Order ${data.order_id}: ${data.old_status} → ${data.new_status}`);
+    // เรียก API ภายในเพื่ออัปเดต UI / แจ้งลูกค้าทาง Line
+}
+
+function handleStockUpdate(data) {
+    // อัปเดตสต็อกใน Frontend
+    console.log(`Stock updated: ${data.sku} = ${data.new_stock}`);
+    // Broadcast ผ่าน WebSocket ไปยังหน้าสินค้า
+}
+
+function handleNewCustomer(data) {
+    console.log(`New customer: ${data.name} (${data.email})`);
+}
+
+function handlePointsUpdate(data) {
+    console.log(`Points updated for ${data.customer_id}: ${data.new_points}`);
+}
+
+app.listen(3000, () => {
+    console.log('Webhook server running on port 3000');
+});
+
+PHP (Laravel / Native)php
+
+<?php
+
+// routes/web.php หรือ webhook.php
+$secret = 'your_dalayar_webhook_secret';
+$signature = $_SERVER['HTTP_X_DALAYAR_SIGNATURE'] ?? '';
+$rawPayload = file_get_contents('php://input');
+$payload = json_decode($rawPayload, true);
+
+if (!$signature || !hash_equals('sha256=' . hash_hmac('sha256', $rawPayload, $secret), $signature)) {
+    http_response_code(401);
+    exit('Invalid signature');
+}
+
+$event = $payload['event'] ?? '';
+$data = $payload['data'] ?? [];
+
+error_log("Webhook received: $event");
+
+switch ($event) {
+    case 'order.status_updated':
+        handleOrderStatus($data);
+        break;
+    case 'inventory.stock_updated':
+        handleStockUpdate($data);
+        break;
+}
+
+echo 'OK';
+
+function handleOrderStatus($data) {
+    // อัปเดตในฐานข้อมูล @DRYShop4
+    \Log::info("Order {$data['order_id']} status: {$data['new_status']}");
+}
+
+function handleStockUpdate($data) {
+    // อัปเดตสต็อก
+    \Log::info("Stock {$data['sku']} = {$data['new_stock']}");
+}
+?>
+
+4. การตั้งค่าใน @DRYShop4
+ (ฝั่งร้าน)ขั้นตอน
+รายละเอียด
+1. สร้าง Webhook URL
+https://yourshop.dryshop4.com/api/webhook/dalayar
+2. เปิด HTTPS + SSL
+ต้องมีใบรับรอง
+3. ตั้งค่า Secret Key
+ใช้ร่วมกับ DALAYAR
+4. ทดสอบด้วย Test Ping
+DALAYAR จะส่ง event: ping
+5. เปิดใช้งาน
+เริ่มรับข้อมูลจริง
+
+5. ตัวอย่าง Test Ping จาก DALAYARjson
+
+{
+  "event": "ping",
+  "timestamp": "2025-04-05T10:00:00+07:00",
+  "data": {
+    "message": "Webhook is active"
+  }
+}
+
+สรุปประโยชน์ของ Webhookฟีเจอร์
+ผลลัพธ์
+สต็อกอัปเดตทันที
+ลูกค้าเห็นสต็อกจริง
+สถานะจัดส่ง
+แจ้งอัตโนมัติทาง Line / App
+คะแนนสะสม
+หัก/เพิ่มเรียลไทม์
+ลูกค้าใหม่
+ดึงโปรไฟล์ทันที

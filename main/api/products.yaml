@@ -1,0 +1,112 @@
+openapi: 3.0.0
+info:
+  title: DALAYAR Product API
+  version: 1.0.0
+  description: API สำหรับจัดการข้อมูลสินค้าในระบบ DALAYAR
+
+paths:
+  /api/v1/products:
+    post:
+      summary: สร้างสินค้าใหม่
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '200':
+          description: สร้างสินค้าสำเร็จ
+        '400':
+          description: ข้อมูลไม่ถูกต้อง
+
+    get:
+      summary: ดึงสินค้าทั้งหมด
+      responses:
+        '200':
+          description: รายการสินค้า
+        '404':
+          description: ไม่พบสินค้า
+
+  /api/v1/products/{sku}:
+    get:
+      summary: ดึงสินค้าตาม SKU
+      parameters:
+        - name: sku
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ข้อมูลสินค้า
+        '404':
+          description: ไม่พบสินค้า
+
+    patch:
+      summary: แก้ไขสินค้า
+      parameters:
+        - name: sku
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductUpdate'
+      responses:
+        '200':
+          description: แก้ไขสำเร็จ
+        '404':
+          description: ไม่พบสินค้า
+
+    delete:
+      summary: ลบสินค้า
+      parameters:
+        - name: sku
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ลบสำเร็จ
+        '404':
+          description: ไม่พบสินค้า
+
+components:
+  schemas:
+    Product:
+      type: object
+      required:
+        - sku
+        - name
+        - price
+        - stock
+      properties:
+        sku:
+          type: string
+        name:
+          type: string
+        category:
+          type: string
+        price:
+          type: number
+        stock:
+          type: number
+        description:
+          type: string
+        image_url:
+          type: string
+
+    ProductUpdate:
+      type: object
+      properties:
+        price:
+          type: number
+        stock:
+          type: number
+        description:
+          type: string

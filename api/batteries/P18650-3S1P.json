@@ -1,0 +1,46 @@
+{
+  "sku": "P18650-3S1P",
+  "lot_id": "20251103-06",
+  "name": "PowerPack18650 11.1V 2000mAh",
+  "project": "dalayar-plack-2000mah",
+  "voltage_nominal": 11.1,
+  "capacity_mAh": 2000,
+  "cell_type": "ICR18650",
+  "cell_configuration": "3S1P",
+  "charging_voltage": 12.6,
+  "bms_features": [
+    "Overcharge Protection",
+    "Overdischarge Protection",
+    "Short Circuit Protection"
+  ],
+  "applications": [
+    "อุปกรณ์พกพา",
+    "IoT",
+    "ระบบไฟฟ้าเบา",
+    "e-Mobility"
+  ],
+  "customizable": true,
+  "dimensions_mm": "55mm x 65mm",
+  "weight_kg": 0.18,
+  "cycle_life": 800,
+  "price_thb": 0,
+  "stock_status": "พร้อมขาย",
+  "release_date": "2025-11-03",
+  "description": "แบตเตอรี่ลิเธียมไอออน 18650 รุ่น Plack แบบ 3S1P ให้แรงดัน 11.1V เหมาะสำหรับงานพกพา IoT และระบบไฟฟ้าเบา พร้อมระบบ BMS ป้องกันพื้นฐาน",
+  "image_url": "https://lirp.cdn-website.com/31b83fac/dms3rep/multi/opt/3S1P+PNG-1920w.png",
+  "marketing_tags": [
+    "น้ำหนักเบา",
+    "แรงดันกลาง",
+    "เหมาะกับงานพกพา"
+  ],
+  "test_results": {
+    "voltage_full": "12.55V – 12.65V",
+    "capacity_actual": "1985 – 2020 mAh",
+    "protection_reverse": true,
+    "protection_overvoltage": "12.7V",
+    "protection_undervoltage": "9.0V",
+    "protection_overcurrent": "3.0A"
+  },
+  "certified": true,
+  "api_version": "v1"
+}

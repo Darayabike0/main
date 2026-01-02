@@ -1,0 +1,62 @@
+{
+  "company": "DALAYAR Bicycle Lifestyle Co., Ltd.",
+  "job_id": "JOB-2025-017",
+  "issue_date": "22 ตุลาคม 2025",
+  "customer": {
+    "name": "แม่พี่ A",
+    "phone": "+66 9165 5215",
+    "line_oa": "@dalayar",
+    "vehicle_id": "DA00121Th"
+  },
+  "items": [
+    {
+      "index": 1,
+      "title": "แบตเตอรี่ 12Ah",
+      "qty": 4,
+      "unit": 650,
+      "total": 2600
+    },
+    {
+      "index": 2,
+      "title": "ยางนอก-ในล้อหลัง",
+      "qty": 1,
+      "unit": 300,
+      "total": 300
+    },
+    {
+      "index": 3,
+      "title": "ยางนอก-ในล้อหน้า",
+      "qty": 1,
+      "unit": 300,
+      "total": 300
+    },
+    {
+      "index": 4,
+      "title": "ค่าแรงซ่อม (มาตรฐานแรงงานไทย)",
+      "qty": 1,
+      "unit": 300,
+      "total": 300
+    },
+    {
+      "index": 5,
+      "title": "สายเชื่อมแบตเตอรี่",
+      "qty": 1,
+      "unit": 50,
+      "total": 50
+    }
+  ],
+  "totals": {
+    "subtotal": 3550,
+    "vat_rate": 0,
+    "vat_amount": 0,
+    "grand_total": 3550,
+    "prepaid": 3500,
+    "balance": 50
+  },
+  "warranty": [
+    "งานฟื้นฟูแบตเตอรี่: รับประกัน 30 วัน",
+    "ยางหลังและสายเชื่อม: รับประกัน 30 วัน",
+    "ใบรับรองหลังซ่อม: PDF + QR ตรวจสอบย้อนหลัง"
+  ],
+  "brand_philosophy": "เจ้าป่า — มั่นคง ชัดเจน เชื่อถือได้"
+}

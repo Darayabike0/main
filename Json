@@ -1,117 +1,60 @@
 {
-  "info": {
-    "_postman_id": "dryshop4-spotweld-github",
-    "name": "DRYShop4 - SpotWeld Pro (GitHub API)",
-    "description": "เรียกดูไฟล์ JSON, โค้ด, และข้อมูลโปรเจกต์ Spot Welder จาก GitHub repo: Darayabike0/1-api-spotweld-pro\n\n**Repository**: https://github.com/Darayabike0/1-api-spotweld-pro",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "1. ดึงข้อมูล Repository (Overview)",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Accept",
-            "value": "application/vnd.github.v3+json"
-          }
-        ],
-        "url": {
-          "raw": "https://api.github.com/repos/Darayabike0/1-api-spotweld-pro",
-          "protocol": "https",
-          "host": ["api", "github", "com"],
-          "path": ["repos", "Darayabike0", "1-api-spotweld-pro"]
-        },
-        "description": "ดูข้อมูล repo: ชื่อ, ดาว, ฟอร์ค, ล่าสุดอัปเดต"
+  "terms_of_service": {
+    "company": {
+      "name": "DALAYAR Bicycle Lifestyle Company Limited",
+      "address": "229 ถนนเกษตรพัฒน์ มัญจาคีรี ขอนแก่น 40160",
+      "last_updated": "2025-10-22",
+      "contact": {
+        "line_oa": "@dalayar",
+        "email": "support@dalayar.co.th",
+        "phone": "+66-XX-XXX-XXXX"
       }
     },
-    {
-      "name": "2. ดึงไฟล์ JSON ทั้งหมดในโฟลเดอร์ Json/",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Accept",
-            "value": "application/vnd.github.v3+json"
-          }
-        ],
-        "url": {
-          "raw": "https://api.github.com/repos/Darayabike0/1-api-spotweld-pro/contents/Json",
-          "protocol": "https",
-          "host": ["api", "github", "com"],
-          "path": ["repos", "Darayabike0", "1-api-spotweld-pro", "contents", "Json"]
-        },
-        "description": "รายnไฟล์ทั้งหมดในโฟลเดอร์ Json"
-      }
-    },
-    {
-      "name": "3. ดึงไฟล์ JSON ตัวอย่าง (เช่น config.json)",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Accept",
-            "value": "application/vnd.github.v3+json"
-          }
-        ],
-        "url": {
-          "raw": "https://api.github.com/repos/Darayabike0/1-api-spotweld-pro/contents/Json/config.json",
-          "protocol": "https",
-          "host": ["api", "github", "com"],
-          "path": ["repos", "Darayabike0", "1-api-spotweld-pro", "contents", "Json", "config.json"]
-        },
-        "description": "ดึงไฟล์ JSON ตัวอย่าง (เปลี่ยนชื่อไฟล์ตามจริง)"
-      }
-    },
-    {
-      "name": "4. ดึง Raw JSON (สำหรับใช้ในแอป)",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "https://raw.githubusercontent.com/Darayabike0/1-api-spotweld-pro/main/Json/config.json",
-          "protocol": "https",
-          "host": ["raw",
- "githubusercontent", "com"],
-          "path": ["Darayabike0", "1-api-spotweld-pro", "main", "Json", "config.json"]
-        },
-        "description": "ดึง JSON ดิบ (ไม่ต้อง decode base64) – ใช้ในแอปได้เลย"
-      }
-    },
-    {
-      "name": "5. ดึง README.md ของโปรเจกต์",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Accept",
-            "value": "application/vnd.github.v3+json"
-          }
-        ],
-        "url": {
-          "raw": "https://api.github.com/repos/Darayabike0/1-api-spotweld-pro/readme",
-          "protocol": "https",
-          "host": ["api", "github", "com"],
-          "path": ["repos", "Darayabike0", "1-api-spotweld-pro", "readme"]
-        }
-      }
-    }
-  ],
-  "auth": {
-    "type": "bearer",
-    "bearer": [
+    "services": [
       {
-        "key": "token",
-        "value": "{{GITHUB_TOKEN}}",
-        "type": "string"
+        "name": "จำหน่ายจักรยานไฟฟ้าและแบตเตอรี่",
+        "description": "สินค้าผ่านการรับรองมาตรฐาน พร้อมบริการหลังการขาย"
+      },
+      {
+        "name": "บริการ SpotWeld Pro",
+        "description": "ระบบเชื่อมจุดอัจฉริยะ พร้อมเอกสารรับรองและ CRM"
+      },
+      {
+        "name": "ระบบลงทะเบียนและแจ้งเตือน",
+        "description": "ผ่าน QR Code และ LINE OA สำหรับการรับประกันและบริการ"
       }
-    ]
-  },
-  "variable": [
-    {
-      "key": "GITHUB_TOKEN",
-      "value": "your_personal_access_token_here",
-      "description": "GitHub PAT (เพิ่ม rate limit จาก 60 → 5000 req/hr)"
+    ],
+    "ordering": {
+      "requirements": [
+        "ลูกค้าต้องกรอกข้อมูลให้ครบถ้วนก่อนยืนยันคำสั่งซื้อ",
+        "การชำระเงินต้องผ่านช่องทางที่บริษัทกำหนด",
+        "ราคาสินค้าอาจเปลี่ยนแปลงโดยไม่ต้องแจ้งล่วงหน้า"
+      ]
+    },
+    "warranty_and_returns": {
+      "warranty": "สินค้าทุกชิ้นมีการรับประกันตามเงื่อนไขที่ระบุในเอกสาร",
+      "return_policy": {
+        "period": "ภายใน 7 วันหลังจากได้รับสินค้า",
+        "condition": "สินค้าต้องอยู่ในสภาพสมบูรณ์"
+      },
+      "claim_process": "ต้องผ่านช่องทางที่บริษัทกำหนด พร้อมหลักฐานการซื้อ"
+    },
+    "privacy": {
+      "data_usage": [
+        "บริษัทเก็บข้อมูลเพื่อใช้ในการให้บริการและปรับปรุงระบบ",
+        "ข้อมูลจะไม่ถูกเปิดเผยแก่บุคคลภายนอกโดยไม่ได้รับอนุญาต"
+      ],
+      "consent": "การลงทะเบียนผ่าน QR Code หรือ LINE OA ถือเป็นการยินยอม"
+    },
+    "liability": {
+      "exclusions": [
+        "บริษัทไม่รับผิดชอบต่อความเสียหายจากการใช้งานผิดวิธี",
+        "การซ่อมแซมต้องดำเนินการโดยทีมงานที่ได้รับอนุญาต"
+      ]
+    },
+    "changes": {
+      "policy": "บริษัทสามารถปรับปรุงเงื่อนไขได้โดยไม่ต้องแจ้งล่วงหน้า",
+      "acceptance": "การใช้งานต่อเนื่องถือว่าผู้ใช้ยอมรับเงื่อนไขใหม่โดยอัตโนมัติ"
     }
-  ]
+  }
 }

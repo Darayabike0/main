@@ -1,0 +1,47 @@
+{
+  "sku": "P18650-4S1P",
+  "lot_id": "20251103-01",
+  "name": "PowerPack18650 14.8V 2000mAh",
+  "project": "dalayar-plack-2000mah",
+  "voltage_nominal": 14.8,
+  "capacity_mAh": 2000,
+  "cell_type": "ICR18650",
+  "cell_configuration": "4S1P",
+  "charging_voltage": 16.8,
+  "bms_features": [
+    "Overcharge Protection",
+    "Overdischarge Protection",
+    "Short Circuit Protection",
+    "Cell Balancing"
+  ],
+  "applications": [
+    "e-Mobility",
+    "อุปกรณ์พกพา",
+    "ระบบไฟฟ้าเบา",
+    "IoT"
+  ],
+  "customizable": true,
+  "dimensions_mm": "75mm x 65mm",
+  "weight_kg": 0.22,
+  "cycle_life": 800,
+  "price_thb": 0,
+  "stock_status": "พร้อมขาย",
+  "release_date": "2025-11-03",
+  "description": "ชุดแบตเตอรี่ลิเธียมไอออน 18650 รุ่น Plack แบบ 4S1P สำหรับงานที่ต้องการแรงดันสูง เช่น e-Mobility และระบบไฟฟ้าเบา ความจุ 2000 mAh ต่อเซลล์ พร้อมระบบ BMS ป้องกันครบถ้วน",
+  "image_url": "https://img.notionusercontent.com/s3/prod-files-secure%2F1fb64f5b-d843-4207-a7fa-c84a63f9a0b8%2F5412dc3a-7980-48a0-a821-b155f3c1ec0d%2F1000043544.jpg/size/w=650?exp=1762270377&sig=WDgWuTqTQNA5p7eR_Y2bAcAaxcBkd8TG_yYdPv8KwdM&id=29fc8813-902f-80e6-b2f2-d36fd70ed747&table=block",
+  "marketing_tags": [
+    "แรงดันสูง",
+    "ปลอดภัย",
+    "เหมาะกับงาน e-Mobility"
+  ],
+  "test_results": {
+    "voltage_full": "16.75V – 16.85V",
+    "capacity_actual": "1980 – 2025 mAh",
+    "protection_reverse": true,
+    "protection_overvoltage": "16.9V",
+    "protection_undervoltage": "12.0V",
+    "protection_overcurrent": "4.0A"
+  },
+  "certified": true,
+  "api_version": "v1"
+}

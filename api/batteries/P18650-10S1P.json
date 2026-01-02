@@ -1,0 +1,47 @@
+{
+  "sku": "P18650-10S1P",
+  "lot_id": "20251103-05",
+  "name": "PowerPack18650 37.0V 2000mAh",
+  "project": "dalayar-plack-2000mah",
+  "voltage_nominal": 37.0,
+  "capacity_mAh": 2000,
+  "cell_type": "ICR18650",
+  "cell_configuration": "10S1P",
+  "charging_voltage": 42.0,
+  "bms_features": [
+    "Overcharge Protection",
+    "Overdischarge Protection",
+    "Short Circuit Protection",
+    "Cell Balancing"
+  ],
+  "applications": [
+    "e-Mobility",
+    "จักรยานไฟฟ้า",
+    "เครื่องมือไฟฟ้า",
+    "ระบบพลังงานสำรอง"
+  ],
+  "customizable": true,
+  "dimensions_mm": "135mm x 65mm",
+  "weight_kg": 0.38,
+  "cycle_life": 800,
+  "price_thb": 0,
+  "stock_status": "พร้อมขาย",
+  "release_date": "2025-11-03",
+  "description": "แบตเตอรี่ลิเธียมไอออน 18650 รุ่น Plack แบบ 10S1P ให้แรงดันสูง 37.0V เหมาะสำหรับงานที่ต้องการพลังงานต่อเนื่อง เช่น จักรยานไฟฟ้า เครื่องมือไฟฟ้า และระบบพลังงานสำรอง พร้อมระบบ BMS ป้องกันครบถ้วน",
+  "image_url": "https://img.notionusercontent.com/s3/prod-files-secure%2F1fb64f5b-d843-4207-a7fa-c84a63f9a0b8%2F5412dc3a-7980-48a0-a821-b155f3c1ec0d%2F1000043544.jpg/size/w=650?exp=1762270377&sig=WDgWuTqTQNA5p7eR_Y2bAcAaxcBkd8TG_yYdPv8KwdM&id=29fc8813-902f-80e6-b2f2-d36fd70ed747&table=block",
+  "marketing_tags": [
+    "แรงดันสูง",
+    "เหมาะกับจักรยานไฟฟ้า",
+    "ปลอดภัย"
+  ],
+  "test_results": {
+    "voltage_full": "41.8V – 42.2V",
+    "capacity_actual": "1980 – 2025 mAh",
+    "protection_reverse": true,
+    "protection_overvoltage": "42.3V",
+    "protection_undervoltage": "30.0V",
+    "protection_overcurrent": "6.0A"
+  },
+  "certified": true,
+  "api_version": "v1"
+}

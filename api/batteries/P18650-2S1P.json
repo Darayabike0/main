@@ -1,0 +1,51 @@
+{
+  "sku": "P18650-2S1P",
+  "lot_id": "20251024-02",
+  "name": "PowerPack18650 7.4V 2000mAh",
+  "project": "dalayar-plack-2000mah",
+  "description": "ชุดแบตเตอรี่ลิเธียมไอออน 18650 รุ่น Plack สำหรับการใช้งานตั้งแต่ 2S–10S ความจุ 2000 mAh ต่อเซลล์ เหมาะสำหรับ IoT, อุปกรณ์พกพา, ระบบไฟฟ้าเบา และ e-Mobility",
+  "voltage_nominal": 7.4,
+  "capacity_mAh": 2000,
+  "cell_type": "ICR18650",
+  "cell_configuration": "2S1P",
+  "charging_voltage": 8.4,
+  "bms_features": [
+    "Overcharge Protection",
+    "Overdischarge Protection",
+    "Short Circuit Protection"
+  ],
+  "applications": [
+    "IoT",
+    "UPS",
+    "อุปกรณ์พกพา",
+    "e-Mobility"
+  ],
+  "customizable": true,
+  "dimensions_mm": "38mm x 65mm",
+  "weight_kg": 0.12,
+  "cycle_life": 800,
+  "price_thb": 0,
+  "stock_status": "พร้อมขาย",
+  "release_date": "2025-10-24",
+  "image_url": "https://dalayar.co.th/products/p18650-2s1p.jpg",
+  "marketing_tags": [
+    "น้ำหนักเบา",
+    "ปลอดภัย",
+    "เหมาะกับงาน DIY"
+  ],
+  "test_results": {
+    "voltage_full": "8.38V – 8.42V",
+    "capacity_actual": "1985 – 2020 mAh",
+    "protection_reverse": true,
+    "protection_overvoltage": "8.45V",
+    "protection_undervoltage": "6.0V",
+    "protection_overcurrent": "3.5A"
+  },
+  "certified": true,
+  "api_version": "v1",
+  "links": {
+    "coa": "/coa/lot-20251024-02",
+    "notion": "https://exultant-limit-4af.notion.site/LOT-20251024-02-29fc8813902f80d3adfdfeaec8096981?source=copy_link",
+    "markdown": "/powerpack/lot-20251024-02.md"
+  }
+}
