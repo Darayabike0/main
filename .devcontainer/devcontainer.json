@@ -1,4 +1,13 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "features": {}
+    ชื่อ: "my-project-devcontainer"
+    "image": "https://docs.googleapis.com/$discovery/rest?version=v1", // รูปภาพใดๆ ก็ได้ที่ใช้ Debian เป็นพื้นฐาน
+    "คุณสมบัติ": {
+        "ghcr.io/devcontainers/features/go:1": {
+            เวอร์ชัน: 1.18
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:1": {
+            เวอร์ชัน: ล่าสุด
+            "โมบี้": จริง
+        }
+    }
 }
