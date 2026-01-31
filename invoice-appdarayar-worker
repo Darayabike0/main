@@ -1,0 +1,161 @@
+📂 โครงสร้างโปรเจกต์
+
+`
+invoice-appdarayar-worker/
+├── wrangler.toml
+├── package.json
+├── src/
+│   └── index.js
+├── public/
+│   └── config.html
+`
+
+---
+
+📄 wrangler.toml
+
+`toml
+name = "invoice-appdarayar-worker"
+main = "src/index.js"
+compatibility_date = "2026-01-31"
+
+[vars]
+คนงาน.พัฒนา = "app-darayar.invoice-appdarayarworkersdev.workers.dev"
+ดูตัวอย่างURL = "*app-darayar.invoice-appdarayarworkersdev.workers.dev"
+
+[env.development]
+vars = { 
+  คนงาน.พัฒนา = "app-darayar.invoice-appdarayarworkersdev.workers.dev",
+  ดูตัวอย่างURL = "*-app-darayar.invoice-appdarayarworkersdev.workers.dev"
+}
+
+[env.production]
+vars = { 
+  คนงาน.พัฒนา = "app-darayar.invoice-appdarayarworkersdev.workers.dev",
+  ดูตัวอย่างURL = "*-app-darayar.invoice-appdarayarworkersdev.workers.dev"
+}
+`
+
+---
+
+📄 package.json
+
+`json
+{
+  "name": "invoice-appdarayar-worker",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker สำหรับจัดการ Invoice ของ DALAYAR Bicycle",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "wrangler dev",
+    "deploy": "wrangler publish"
+  },
+  "author": "DALAYAR Bicycle Lifestyle Co., Ltd.",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
+`
+
+---
+
+📄 src/index.js
+
+`javascript
+export default {
+  async fetch(request, env) {
+    const domain = env["คนงาน.พัฒนา"];
+    const previewPattern = env["ดูตัวอย่างURL"];
+    const url = new URL(request.url);
+
+    if (url.host === domain || url.host.match(previewPattern)) {
+      return new Response(
+        ✅ Worker เข้าถึงได้\nHost: ${url.host}\nDomain: ${domain}\nPattern: ${previewPattern},
+        { status: 200 }
+      );
+    }
+
+    return new Response("❌ ไม่อนุญาตให้เข้าถึง", { status: 403 });
+  }
+};
+`
+
+---
+
+📄 public/config.html
+
+`html
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Invoice Appdarayar Worker Config</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f9f9f9; margin: 20px; color: #333; }
+    h1 { color: #0066cc; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #fff; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+    th { background: #eee; }
+    .env-title { margin-top: 30px; font-size: 1.2em; color: #444; }
+  </style>
+</head>
+<body>
+  <h1>⚙️ Invoice Appdarayar Worker Configuration</h1>
+
+  <table>
+    <tr><th>Key</th><th>Value</th></tr>
+    <tr><td>name</td><td>invoice-appdarayar-worker</td></tr>
+    <tr><td>main</td><td>src/index.js</td></tr>
+    <tr><td>compatibility_date</td><td>2026-01-31</td></tr>
+    <tr><td>คนงาน.พัฒนา</td><td>app-darayar.invoice-appdarayarworkersdev.workers.dev</td></tr>
+    <tr><td>ดูตัวอย่างURL</td><td>*app-darayar.invoice-appdarayarworkersdev.workers.dev</td></tr>
+  </table>
+
+  <div class="env-title">🔧 Environment: Development</div>
+  <table>
+    <tr><th>Variable</th><th>Value</th></tr>
+    <tr><td>คนงาน.พัฒนา</td><td>app-darayar.invoice-appdarayarworkersdev.workers.dev</td></tr>
+    <tr><td>ดูตัวอย่างURL</td><td>*-app-darayar.invoice-appdarayarworkersdev.workers.dev</td></tr>
+  </table>
+
+  <div class="env-title">🚀 Environment: Production</div>
+  <table>
+    <tr><th>Variable</th><th>Value</th></tr>
+    <tr><td>คนงาน.พัฒนา</td><td>app-darayar.invoice-appdarayarworkersdev.workers.dev</td></tr>
+    <tr><td>ดูตัวอย่างURL</td><td>*-app-darayar.invoice-appdarayarworkersdev.workers.dev</td></tr>
+  </table>
+</body>
+</html>
+`
+
+---
+
+🚀 ขั้นตอนการใช้งาน (Checklist)
+
+1. สร้างโปรเจกต์ใหม่  
+   `bash
+   mkdir invoice-appdarayar-worker && cd invoice-appdarayar-worker
+   npm init -y
+   `
+
+2. ติดตั้ง wrangler  
+   `bash
+   npm install wrangler --save-dev
+   `
+
+3. เพิ่มไฟล์ทั้งหมด  
+   - wrangler.toml  
+   - package.json (แก้ไขตามตัวอย่าง)  
+   - src/index.js  
+   - public/config.html  
+
+4. ทดสอบ Worker  
+   `bash
+   npm run start
+   `
+
+5. Deploy ไปยัง Cloudflare Workers  
+   `bash
+   npm run deploy
+   `
