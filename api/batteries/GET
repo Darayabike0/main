@@ -1,0 +1,13 @@
+# User API Tokens
+## GET API token was successfully created
+Copy this token to access the Cloudflare API. For security this will not be shown again. Learn more
+
+
+4ORXV41m3AknkWc6p1jvQ429C_caqzAp1E7LP3_P
+
+### Test this token
+#### To confirm your token is working correctly, copy and paste the below CURL command in a terminal shell to test.
+
+
+curl "https://api.cloudflare.com/client/v4/user/tokens/verify" \
+-H "Authorization: Bearer 4ORXV41m3AknkWc6p1jvQ429C_caqzAp1E7LP3_P"
