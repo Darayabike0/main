@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datasheet: PowerPack18650 10S1P</title>
+    
+    <!-- Google Fonts: Prompt for Thai, Roboto for Numbers/English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Library (Phosphor Icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        :root {
+            --primary: #0ea5e9;       /* Sky Blue */
+            --primary-dark: #0284c7;
+            --accent: #f59e0b;        /* Amber for warnings/highlights */
+            --success: #10b981;       /* Emerald for safe/stock */
+            --dark: #0f172a;          /* Slate 900 */
+            --light: #f8fafc;         /* Slate 50 */
+            --border: #e2e8f0;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --radius: 12px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #f1f5f9;
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+        }
+
+        @media (max-width: 768px) {
+            .container { margin: 0; border-radius: 0; }
+        }
+
+        /* --- Header Section --- */
+        header {
+            background: white;
+            padding: 24px 32px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .product-title h1 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .sku-badge {
+            font-family: 'Roboto', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .status-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .status-stock { background: #dcfce7; color: #166534; }
+        .status-cert { background: #e0f2fe; color: #075985; }
+
+        /* --- Main Content Grid --- */
+        .main-content {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 0;
+        }
+
+        @media (max-width: 850px) {
+            .main-content { grid-template-columns: 1fr; }
+        }
+
+        /* Left Column: Visuals */
+        .visual-column {
+            background: #f8fafc;
+            padding: 32px;
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-image {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            border-radius: var(--radius);
+            border: 1px solid white;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 24px;
+            background: white;
+            padding: 10px;
+        }
+
+        .quick-specs {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .spec-card {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .spec-card i { font-size: 1.5rem; color: var(--primary); margin-bottom: 4px; }
+        .spec-val { font-family: 'Roboto', sans-serif; font-weight: 700; color: var(--dark); font-size: 1.1rem; }
+        .spec-label { font-size: 0.75rem; color: var(--text-muted); }
+
+        /* Right Column: Details */
+        .details-column {
+            padding: 32px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .section-title i { color: var(--primary); }
+
+        .description {
+            color: var(--text-main);
+            margin-bottom: 32px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Data Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 32px;
+            font-size: 0.9rem;
+        }
+
+        .data-table th, .data-table td {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .data-table th {
+            color: var(--text-muted);
+            font-weight: 500;
+            width: 40%;
+        }
+
+        .data-table td {
+            font-weight: 500;
+            color: var(--dark);
+            font-family: 'Roboto', sans-serif; /* Numbers look better in Roboto */
+        }
+
+        /* BMS Features */
+        .bms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .bms-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .bms-item i { color: var(--success); font-weight: bold; }
+
+        /* Applications Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 32px;
+        }
+
+        .tag {
+            background: #eff6ff;
+            color: var(--primary-dark);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Engineering Box */
+        .engineering-box {
+            background: #fffbeb;
+            border: 1px solid #fcd34d;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .engineering-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            color: #92400e;
+            font-weight: 600;
+            border-bottom: 1px solid #fde68a;
+            padding-bottom: 8px;
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+        }
+
+        .test-point {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .test-point label { font-size: 0.75rem; color: #b45309; margin-bottom: 2px; }
+        .test-point span { font-family: 'Roboto', sans-serif; font-weight: 700; color: #78350f; }
+
+        /* Footer */
+        footer {
+            background: var(--light);
+            padding: 16px 32px;
+            border-top: 1px solid var(--border);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- HEADER -->
+        <header>
+            <div class="product-title">
+                <h1>PowerPack18650 <span style="font-weight:300;">37.0V 2000mAh</span></h1>
+                <span class="sku-badge">SKU: P18650-10S1P | Lot: 20251103-05</span>
+            </div>
+            <div class="status-group">
+                <div class="status-badge status-stock">
+                    <i class="ph ph-check-circle"></i> พร้อมขาย
+                </div>
+                <div class="status-badge status-cert">
+                    <i class="ph ph-seal-check"></i> Certified
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            
+            <!-- LEFT: VISUALS -->
+            <div class="visual-column">
+                <img src="https://img.notionusercontent.com/s3/prod-files-secure%2F1fb64f5b-d843-4207-a7fa-c84a63f9a0b8%2F5412dc3a-7980-48a0-a821-b155f3c1ec0d%2F1000043544.jpg/size/w=650?exp=1762270377&sig=WDgWuTqTQNA5p7eR_Y2bAcAaxcBkd8TG_yYdPv8KwdM&id=29fc8813-902f-80e6-b2f2-d36fd70ed747&table=block" alt="PowerPack Battery" class="product-image">
+                
+                <div class="quick-specs">
+                    <div class="spec-card">
+                        <i class="ph ph-lightning"></i>
+                        <div class="spec-val">37.0 V</div>
+                        <div class="spec-label">Nominal Voltage</div>
+                    </div>
+                    <div class="spec-card">
+                        <i class="ph ph-battery-full"></i>
+                        <div class="spec-val">2000 mAh</div>
+                        <div class="spec-label">Capacity</div>
+                    </div>
+                    <div class="spec-card">
+                        <i class="ph ph-arrows-out"></i>
+                        <div class="spec-val">10S1P</div>
+                        <div class="spec-label">Configuration</div>
+                    </div>
+                    <div class="spec-card">
+                        <i class="ph ph-scales"></i>
+                        <div class="spec-val">0.38 kg</div>
+                        <div class="spec-label">Weight</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: DETAILS -->
+            <div class="details-column">
+                
+                <div class="section-title">
+                    <i class="ph ph-info"></i> Product Overview
+                </div>
+                <p class="description">
+                    แบตเตอรี่ลิเธียมไอออน 18650 รุ่น Plack แบบ 10S1P ให้แรงดันสูง 37.0V เหมาะสำหรับงานที่ต้องการพลังงานต่อเนื่อง เช่น จักรยานไฟฟ้า เครื่องมือไฟฟ้า และระบบพลังงานสำรอง พร้อมระบบ BMS ป้องกันครบถ้วน
+                </p>
+
+                <!-- Technical Specs -->
+                <div class="section-title">
+                    <i class="ph ph-sliders"></i> Specifications
+                </div>
+                <table class="data-table">
+                    <tr>
+                        <th>Cell Type</th>
+                        <td>ICR18650</td>
+                    </tr>
+                    <tr>
+                        <th>Charging Voltage</th>
+                        <td>42.0 V</td>
+                    </tr>
+                    <tr>
+                        <th>Dimensions</th>
+                        <td>135mm x 65mm</td>
+                    </tr>
+                    <tr>
+                        <th>Cycle Life</th>
+                        <td>800 Cycles</td>
+                    </tr>
+                    <tr>
+                        <th>Release Date</th>
+                        <td>2025-11-03</td>
+                    </tr>
+                </table>
+
+                <!-- BMS & Applications -->
+                <div class="section-title">
+                    <i class="ph ph-shield-check"></i> Protection & Safety (BMS)
+                </div>
+                <div class="bms-grid">
+                    <div class="bms-item"><i class="ph ph-check"></i> Overcharge Protection</div>
+                    <div class="bms-item"><i class="ph ph-check"></i> Overdischarge Protection</div>
+                    <div class="bms-item"><i class="ph ph-check"></i> Short Circuit Protection</div>
+                    <div class="bms-item"><i class="ph ph-check"></i> Cell Balancing</div>
+                </div>
+
+                <div class="section-title">
+                    <i class="ph ph-plugs"></i> Applications
+                </div>
+                <div class="tags">
+                    <span class="tag">e-Mobility</span>
+                    <span class="tag">จักรยานไฟฟ้า</span>
+                    <span class="tag">เครื่องมือไฟฟ้า</span>
+                    <span class="tag">ระบบพลังงานสำรอง</span>
+                </div>
+
+                <!-- Engineering Data -->
+                <div class="engineering-box">
+                    <div class="engineering-header">
+                        <span><i class="ph ph-chart-line-up"></i> Lab Test Results</span>
+                    </div>
+                    <div class="test-grid">
+                        <div class="test-point">
+                            <label>Actual Capacity</label>
+                            <span>1980 – 2025 mAh</span>
+                        </div>
+                        <div class="test-point">
+                            <label>Full Voltage Range</label>
+                            <span>41.8V – 42.2V</span>
+                        </div>
+                        <div class="test-point">
+                            <label>Overvoltage Cutoff</label>
+                            <span>42.3V</span>
+                        </div>
+                        <div class="test-point">
+                            <label>Undervoltage Cutoff</label>
+                            <span>30.0V</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <div>Project: dalayar-plack-2000mah</div>
+            <div>API Version: v1</div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
+
